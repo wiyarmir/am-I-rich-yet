@@ -1,0 +1,10 @@
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+dependencies {
+    def commonDependencies = rootProject.ext.commonDependencies
+
+    implementation project(':core')
+
+    compile commonDependencies.kotlinStdLib
+}
