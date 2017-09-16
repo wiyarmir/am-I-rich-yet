@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion project.compileSdkVersion as int
@@ -30,10 +31,9 @@ dependencies {
     def developmentDependencies = rootProject.ext.developmentDependencies
     def testDependencies = rootProject.ext.testDependencies
 
-    compile commonDependencies.kotlinStdLib
+    implementation commonDependencies.kotlinStdLib
 
     implementation project(':core')
-
     implementation project(':logic')
 
     // Android
@@ -41,8 +41,7 @@ dependencies {
 
     // Dagger 2
     implementation commonDependencies.dagger2
-    annotationProcessor commonDependencies.dagger2Compiler
-    testAnnotationProcessor commonDependencies.dagger2Compiler
+    kapt  commonDependencies.dagger2Compiler
     compileOnly commonDependencies.javaxAnnotation
 
     // Stetho
@@ -53,7 +52,6 @@ dependencies {
     debugImplementation developmentDependencies.leakcanary
     releaseImplementation developmentDependencies.leakcanaryNoOp
     testImplementation developmentDependencies.leakcanaryNoOp
-
 
     // Tests
     testImplementation testDependencies.junit

@@ -7,9 +7,12 @@ dependencies {
     implementation project(':core')
     implementation project(':services')
 
-    compile commonDependencies.kotlinStdLib
+    implementation commonDependencies.kotlinStdLib
 
-    testCompile testDependencies.junit
-    testCompile testDependencies.mockito
-    testCompile testDependencies.kluent
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.kluent
 }
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8

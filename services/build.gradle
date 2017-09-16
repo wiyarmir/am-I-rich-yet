@@ -7,13 +7,18 @@ dependencies {
 
     implementation project(':core')
 
-    compile commonDependencies.kotlinStdLib
-    compile commonDependencies.gson
-    compile commonDependencies.retrofit2
-    compile commonDependencies.retrofitRxAdapter
-    compile commonDependencies.retrofitConverter
+    compile commonDependencies.rxJava2
 
-    testCompile testDependencies.junit
-    testCompile testDependencies.mockito
-    testCompile testDependencies.kluent
+    implementation commonDependencies.kotlinStdLib
+    implementation commonDependencies.gson
+    implementation commonDependencies.retrofit2
+    implementation commonDependencies.retrofitRxAdapter
+    implementation commonDependencies.retrofitConverter
+
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.kluent
 }
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8

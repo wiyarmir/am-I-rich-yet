@@ -4,9 +4,14 @@ apply plugin: 'kotlin'
 dependencies {
     def commonDependencies = rootProject.ext.commonDependencies
 
-    compile commonDependencies.kotlinStdLib
+    implementation commonDependencies.kotlinStdLib
 
-    testCompile testDependencies.junit
-    testCompile testDependencies.mockito
-    testCompile testDependencies.kluent
+    compile commonDependencies.rxJava2
+
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.kluent
 }
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
