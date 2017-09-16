@@ -22,6 +22,7 @@ ext {
     junit = '4.12'
     mockito = '2.8.9'
     assertJ = '3.8.0'
+    kluent = '1.29'
 
     commonDependencies = [
             kotlinStdLib                : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlin}",
@@ -58,11 +59,12 @@ ext {
             gson                        : "com.google.code.gson:gson:${gson}",
     ]
 
-    commonTestDependencies = [
+    testDependencies = [
             junit   : "junit:junit:${junit}",
             assertj : "org.assertj:assertj-core:${assertJ}",
             mockito : "org.mockito:mockito-core:${mockito}",
-            archTest: "android.arch.core:core-testing:${archLifecycle}"
+            archTest: "android.arch.core:core-testing:${archLifecycle}",
+            kluent  : "org.amshove.kluent:kluent:${kluent}",
     ]
 
     developmentDependencies = [
@@ -70,6 +72,6 @@ ext {
             leakcanaryNoOp: "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanary}",
 
             stetho        : "com.facebook.stetho:stetho:${stetho}",
-            stethoOkHttp  : "com.facebook.stetho:stetho-okhttp3:${stetho}"
+            stethoOkHttp  : "com.facebook.stetho:stetho-okhttp3:${stetho}",
     ]
 }

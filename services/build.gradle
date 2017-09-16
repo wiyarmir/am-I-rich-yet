@@ -3,6 +3,7 @@ apply plugin: 'kotlin'
 
 dependencies {
     def commonDependencies = rootProject.ext.commonDependencies
+    def testDependencies = rootProject.ext.testDependencies
 
     implementation project(':core')
 
@@ -11,4 +12,8 @@ dependencies {
     compile commonDependencies.retrofit2
     compile commonDependencies.retrofitRxAdapter
     compile commonDependencies.retrofitConverter
+
+    testCompile testDependencies.junit
+    testCompile testDependencies.mockito
+    testCompile testDependencies.kluent
 }

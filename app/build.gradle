@@ -28,6 +28,7 @@ android {
 dependencies {
     def commonDependencies = rootProject.ext.commonDependencies
     def developmentDependencies = rootProject.ext.developmentDependencies
+    def testDependencies = rootProject.ext.testDependencies
 
     compile commonDependencies.kotlinStdLib
 
@@ -52,4 +53,10 @@ dependencies {
     debugImplementation developmentDependencies.leakcanary
     releaseImplementation developmentDependencies.leakcanaryNoOp
     testImplementation developmentDependencies.leakcanaryNoOp
+
+
+    // Tests
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.kluent
 }

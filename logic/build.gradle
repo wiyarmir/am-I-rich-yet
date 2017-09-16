@@ -8,4 +8,8 @@ dependencies {
     implementation project(':services')
 
     compile commonDependencies.kotlinStdLib
+
+    testCompile testDependencies.junit
+    testCompile testDependencies.mockito
+    testCompile testDependencies.kluent
 }
