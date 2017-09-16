@@ -7,4 +7,8 @@ dependencies {
     implementation project(':core')
 
     compile commonDependencies.kotlinStdLib
+    compile commonDependencies.gson
+    compile commonDependencies.retrofit2
+    compile commonDependencies.retrofitRxAdapter
+    compile commonDependencies.retrofitConverter
 }
