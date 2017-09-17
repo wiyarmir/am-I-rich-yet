@@ -1,4 +1,4 @@
-package es.guillermoorellana.amirichyet.core
+package es.guillermoorellana.amirichyet.core.rx
 
 import io.reactivex.Flowable
 import io.reactivex.subscribers.TestSubscriber

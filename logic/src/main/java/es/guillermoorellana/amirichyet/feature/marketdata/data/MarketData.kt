@@ -1,4 +1,4 @@
-package es.guillermoorellana.amirichyet.service.marketdata.data
+package es.guillermoorellana.amirichyet.feature.marketdata.data
 
 import java.util.*
 

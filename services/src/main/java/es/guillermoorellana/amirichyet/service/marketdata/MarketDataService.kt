@@ -1,4 +1,4 @@
-package es.guillermoorellana.amirichyet.service.marketdata.data
+package es.guillermoorellana.amirichyet.service.marketdata
 
 import io.reactivex.Single
 import retrofit2.http.GET

@@ -1,17 +1,21 @@
-package es.guillermoorellana.amirichyet.logic.marketdata
+package es.guillermoorellana.amirichyet.feature.marketdata.interactor
 
-import es.guillermoorellana.amirichyet.service.marketdata.data.MarketData
-import es.guillermoorellana.amirichyet.service.marketdata.data.MarketDataRepository
+import es.guillermoorellana.amirichyet.feature.marketdata.data.MarketData
+import es.guillermoorellana.amirichyet.feature.marketdata.data.MarketDataRepository
 import io.reactivex.Flowable
 import org.amshove.kluent.*
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.junit.MockitoJUnitRunner
 import java.util.*
 import java.util.Optional.empty
 
+@RunWith(MockitoJUnitRunner.Strict::class)
 class RetrieveMarketDataTest {
-
-    private val repo: MarketDataRepository = mock()
+    @Mock
+    private lateinit var repo: MarketDataRepository
 
     private val emptyData: Flowable<Optional<List<MarketData>>> = Flowable.just(empty())
     private val someData = Flowable.just(Optional.of(listOf(mock<MarketData>())))

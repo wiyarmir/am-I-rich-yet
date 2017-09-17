@@ -1,6 +1,8 @@
-package es.guillermoorellana.amirichyet.service.marketdata.data
+package es.guillermoorellana.amirichyet.feature.marketdata.data
 
 import es.guillermoorellana.amirichyet.core.data.store.ReactiveStore
+import es.guillermoorellana.amirichyet.service.marketdata.MarketDataRaw
+import es.guillermoorellana.amirichyet.service.marketdata.MarketDataService
 import io.reactivex.Single
 import org.amshove.kluent.When
 import org.amshove.kluent.`it returns`

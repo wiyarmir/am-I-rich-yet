@@ -1,6 +1,7 @@
-package es.guillermoorellana.amirichyet.service.marketdata.data
+package es.guillermoorellana.amirichyet.feature.marketdata.data
 
 import es.guillermoorellana.amirichyet.core.data.store.ReactiveStore
+import es.guillermoorellana.amirichyet.service.marketdata.MarketDataService
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.schedulers.Schedulers

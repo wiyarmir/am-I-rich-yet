@@ -44,6 +44,12 @@ dependencies {
     kapt  commonDependencies.dagger2Compiler
     compileOnly commonDependencies.javaxAnnotation
 
+    // Architecture Components
+    api commonDependencies.archLifecycleRuntime
+    api commonDependencies.archLifecycleExtensions
+    api commonDependencies.archLifecycleReactiveStreams
+    kapt commonDependencies.archLifecycleCompiler
+
     // Stetho
     implementation developmentDependencies.stetho
     implementation developmentDependencies.stethoOkHttp

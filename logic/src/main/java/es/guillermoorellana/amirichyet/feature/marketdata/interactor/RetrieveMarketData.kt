@@ -1,9 +1,9 @@
-package es.guillermoorellana.amirichyet.logic.marketdata
+package es.guillermoorellana.amirichyet.feature.marketdata.interactor
 
-import es.guillermoorellana.amirichyet.core.UnwrapOptionalTransformer
 import es.guillermoorellana.amirichyet.core.domain.interactor.ReactiveInteractor.RetrieveInteractor
-import es.guillermoorellana.amirichyet.service.marketdata.data.MarketData
-import es.guillermoorellana.amirichyet.service.marketdata.data.MarketDataRepository
+import es.guillermoorellana.amirichyet.core.rx.UnwrapOptionalTransformer
+import es.guillermoorellana.amirichyet.feature.marketdata.data.MarketData
+import es.guillermoorellana.amirichyet.feature.marketdata.data.MarketDataRepository
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
