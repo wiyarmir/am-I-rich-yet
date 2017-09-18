@@ -6,7 +6,7 @@ ext {
     supportLibrary = '26.0.0'
     constraintLayout = '1.0.2'
     dagger2 = '2.11'
-    javaxAnnotation = '10.0-b28'
+    javaxAnnotation = '1'
     picasso = '2.5.2'
     lottie = '2.0.0'
     okHttp = '3.8.0'
@@ -32,7 +32,7 @@ ext {
 
             dagger2Compiler             : "com.google.dagger:dagger-compiler:${dagger2}",
             dagger2                     : "com.google.dagger:dagger:${dagger2}",
-            javaxAnnotation             : "org.glassfish:javax.annotation:${javaxAnnotation}",
+            javaxAnnotation             : "javax.inject:javax.inject:${javaxAnnotation}",
 
             supportAppCompatV7          : "com.android.support:appcompat-v7:${supportLibrary}",
             supportDesign               : "com.android.support:design:${supportLibrary}",

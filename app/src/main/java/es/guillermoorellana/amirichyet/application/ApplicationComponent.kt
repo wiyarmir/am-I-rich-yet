@@ -2,12 +2,15 @@ package es.guillermoorellana.amirichyet.application
 
 import dagger.BindsInstance
 import dagger.Component
+import es.guillermoorellana.amirichyet.main.MainActivityComponent
 import javax.inject.Singleton
 
 @Singleton
-@Component()
+@Component(modules = arrayOf(ApplicationModule::class))
 interface ApplicationComponent {
     fun inject(app: BeingRichApplication)
+
+    fun mainActivityComponent(): MainActivityComponent
 
     @Component.Builder
     interface Builder {

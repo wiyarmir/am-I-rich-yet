@@ -8,6 +8,8 @@ dependencies {
 
     compile commonDependencies.rxJava2
 
+    compileOnly commonDependencies.javaxAnnotation
+
     testImplementation testDependencies.junit
     testImplementation testDependencies.mockito
     testImplementation testDependencies.kluent

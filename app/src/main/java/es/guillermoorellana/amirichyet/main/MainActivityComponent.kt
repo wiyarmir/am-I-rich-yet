@@ -1,7 +1,11 @@
 package es.guillermoorellana.amirichyet.main
 
-import dagger.Component
+import dagger.Subcomponent
+import es.guillermoorellana.amirichyet.core.injection.scope.ActivityScope
+import es.guillermoorellana.amirichyet.injection.ActivityModule
 
-@Component(modules = arrayOf())
+@ActivityScope
+@Subcomponent(modules = arrayOf(ActivityModule::class))
 interface MainActivityComponent {
+    fun inject(mainActivity: MainActivity)
 }

@@ -1,4 +1,4 @@
-package es.guillermoorellana.amirichyet.feature.marketdata.presentation
+package es.guillermoorellana.amirichyet.marketdata
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel

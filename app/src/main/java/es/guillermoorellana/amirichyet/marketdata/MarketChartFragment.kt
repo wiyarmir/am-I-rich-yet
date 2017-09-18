@@ -9,8 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import es.guillermoorellana.amirichyet.R
-import es.guillermoorellana.amirichyet.feature.marketdata.presentation.MarketDataViewModel
-import es.guillermoorellana.amirichyet.feature.marketdata.presentation.PlotData
 import javax.inject.Inject
 
 
