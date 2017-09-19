@@ -13,10 +13,13 @@ class BeingRichApplication : Application() {
         getComponent().inject(this)
     }
 
-    fun getComponent(): ApplicationComponent {
-        if (component == null) {
-            component = DaggerApplicationComponent.builder().application(this).build()
-        }
-        return component!!
-    }
+    fun getComponent(): ApplicationComponent = component ?:
+            DaggerApplicationComponent.builder()
+                    .application(this)
+                    .build()
+                    .also { component = it }
 }
+
+fun Application.asBeingRichApplication() = this as BeingRichApplication
+
+fun Application.getComponent() = asBeingRichApplication().getComponent()

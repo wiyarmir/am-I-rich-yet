@@ -1,6 +1,9 @@
 package es.guillermoorellana.amirichyet.core.provider
 
-class TimestampProvider {
+import javax.inject.Inject
+
+class TimestampProvider @Inject constructor() {
+
     fun currentTimeMillis(): Long {
         return System.currentTimeMillis()
     }

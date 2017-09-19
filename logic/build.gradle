@@ -6,7 +6,7 @@ dependencies {
     def commonDependencies = rootProject.ext.commonDependencies
 
     implementation project(':core')
-    implementation project(':services')
+    compile project(':services')
 
     // Dagger 2
     implementation commonDependencies.dagger2

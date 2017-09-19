@@ -6,7 +6,13 @@ import es.guillermoorellana.amirichyet.main.MainActivityComponent
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(ApplicationModule::class))
+@Component(
+        modules = arrayOf(
+                ApplicationModule::class,
+                DataModule::class,
+                ViewModelModule::class
+        )
+)
 interface ApplicationComponent {
     fun inject(app: BeingRichApplication)
 

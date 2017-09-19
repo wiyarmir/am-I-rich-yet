@@ -9,6 +9,7 @@ dependencies {
     compile commonDependencies.rxJava2
 
     compileOnly commonDependencies.javaxAnnotation
+    implementation commonDependencies.dagger2
 
     testImplementation testDependencies.junit
     testImplementation testDependencies.mockito

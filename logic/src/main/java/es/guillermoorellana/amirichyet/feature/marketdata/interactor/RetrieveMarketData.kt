@@ -8,8 +8,9 @@ import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
 import java.util.*
+import javax.inject.Inject
 
-class RetrieveMarketData(
+class RetrieveMarketData @Inject constructor(
         private val marketDataRepository: MarketDataRepository
 ) : RetrieveInteractor<Void, List<MarketData>> {
 

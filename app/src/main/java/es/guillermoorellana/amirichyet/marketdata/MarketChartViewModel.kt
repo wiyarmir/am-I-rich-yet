@@ -8,8 +8,9 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import java.util.*
+import javax.inject.Inject
 
-class MarketDataViewModel(
+class MarketChartViewModel @Inject constructor(
         private val retrieveMarketData: RetrieveMarketData
 ) : ViewModel() {
 
@@ -29,6 +30,6 @@ class MarketDataViewModel(
                     .observeOn(Schedulers.computation())
                     .map(mapper)
                     .subscribe({ marketGraphLiveData.postValue(it) })
-}
 
-class PlotData {}
+    class PlotData
+}

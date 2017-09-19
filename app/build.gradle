@@ -35,6 +35,7 @@ dependencies {
 
     implementation project(':core')
     implementation project(':logic')
+    implementation project(':services')
 
     // Android
     implementation commonDependencies.supportAppCompatV7
