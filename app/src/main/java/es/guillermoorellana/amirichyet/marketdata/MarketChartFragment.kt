@@ -71,6 +71,7 @@ class MarketChartFragment : Fragment() {
         plotData
                 ?.let { (entries) -> LineDataSet(entries, "Price") }
                 .let { dataSet -> chart.data = LineData(dataSet) }
+                .also { chart.invalidate() }
     }
 
     companion object {
