@@ -11,15 +11,19 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import es.guillermoorellana.amirichyet.R
 import es.guillermoorellana.amirichyet.injection.getComponent
 import es.guillermoorellana.amirichyet.main.MainActivityComponent
+import kotterknife.bindView
 import javax.inject.Inject
 
 
 class MarketChartFragment : Fragment() {
 
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    val textView: TextView by bindView(R.id.text)
 
     override fun onAttach(context: Context?) {
         activity.getComponent<MainActivityComponent>()
@@ -44,7 +48,8 @@ class MarketChartFragment : Fragment() {
     }
 
     private fun updateGraph(plotData: MarketChartViewModel.PlotData?) {
-        view?.also { Snackbar.make(it, "data!", BaseTransientBottomBar.LENGTH_SHORT) }
+        view?.also { Snackbar.make(it, "data!", BaseTransientBottomBar.LENGTH_SHORT).show() }
+        textView.text = plotData.toString()
     }
 
     companion object {

@@ -3,7 +3,8 @@ package es.guillermoorellana.amirichyet.injection
 import android.app.Activity
 
 interface InjectingActivity<out Component> {
-    fun getComponent(): Component
+    val component: Component
 }
 
-fun <Component> Activity.getComponent(): Component = (this as InjectingActivity<Component>).getComponent()
+@Suppress("UNCHECKED_CAST")
+fun <Component> Activity.getComponent(): Component = (this as InjectingActivity<Component>).component

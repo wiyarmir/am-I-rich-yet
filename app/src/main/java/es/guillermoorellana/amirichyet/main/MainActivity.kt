@@ -9,15 +9,13 @@ import es.guillermoorellana.amirichyet.marketdata.MarketChartFragment
 
 class MainActivity : AppCompatActivity(), InjectingActivity<MainActivityComponent> {
 
-    private lateinit var component: MainActivityComponent
+    override val component: MainActivityComponent by lazy { application.getComponent().mainActivityComponent() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        component = application.getComponent()
-                .mainActivityComponent()
-                .also { it.inject(this) }
+        component.inject(this)
 
         savedInstanceState ?: also {
             supportFragmentManager.beginTransaction()
@@ -25,6 +23,4 @@ class MainActivity : AppCompatActivity(), InjectingActivity<MainActivityComponen
                     .commit()
         }
     }
-
-    override fun getComponent(): MainActivityComponent = component
 }
