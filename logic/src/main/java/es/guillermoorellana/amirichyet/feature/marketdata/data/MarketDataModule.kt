@@ -10,17 +10,19 @@ import es.guillermoorellana.amirichyet.core.provider.TimestampProvider
 import es.guillermoorellana.amirichyet.service.marketdata.MarketDataRaw
 import es.guillermoorellana.amirichyet.service.marketdata.MarketDataService
 import io.reactivex.Single
+import javax.inject.Singleton
 
 @Module
-abstract class MarketDataModule(
-        val extractKeyFromModel: (MarketData) -> String = { value -> value.timestamp.toString() }
-) {
+class MarketDataModule {
+    val extractKeyFromModel: (MarketData) -> String = { value -> value.timestamp.toString() }
 
     @Provides
+    @Singleton
     fun provideCache(timestampProvider: TimestampProvider): MemoryStore<String, MarketData> =
             Cache(extractKeyFromModel, timestampProvider)
 
     @Provides
+    @Singleton
     fun provideStore(cache: MemoryStore<@JvmSuppressWildcards String, MarketData>): ReactiveStore<String, MarketData> =
             MemoryReactiveStore(extractKeyFromModel, cache)
 

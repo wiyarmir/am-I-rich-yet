@@ -39,10 +39,11 @@ dependencies {
 
     // Android
     implementation commonDependencies.supportAppCompatV7
+    implementation commonDependencies.supportDesign
 
     // Dagger 2
     implementation commonDependencies.dagger2
-    kapt  commonDependencies.dagger2Compiler
+    kapt commonDependencies.dagger2Compiler
     compileOnly commonDependencies.javaxAnnotation
 
     // Architecture Components

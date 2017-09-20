@@ -17,10 +17,9 @@ class MainActivity : LifecycleActivity(), InjectingActivity<MainActivityComponen
 
         component = application.getComponent()
                 .mainActivityComponent()
+                .also { it.inject(this) }
 
-        component.inject(this)
-
-        savedInstanceState?.apply {
+        savedInstanceState ?: also {
             supportFragmentManager.beginTransaction()
                     .add(R.id.container, MarketChartFragment(), MarketChartFragment.TAG)
                     .commit()

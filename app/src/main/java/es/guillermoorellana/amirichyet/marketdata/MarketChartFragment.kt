@@ -6,6 +6,8 @@ import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.os.Bundle
+import android.support.design.widget.BaseTransientBottomBar
+import android.support.design.widget.Snackbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,7 +44,7 @@ class MarketChartFragment : LifecycleFragment() {
     }
 
     private fun updateGraph(plotData: MarketChartViewModel.PlotData?) {
-
+        view?.also { Snackbar.make(it, "data!", BaseTransientBottomBar.LENGTH_SHORT) }
     }
 
     companion object {
