@@ -24,6 +24,13 @@ Design Principles
 - Reactive
 - *SOLID*
 
+Inspiration
+-----------
+
+- [GithubBrowserSample in googlesamples/android-architecture-components](https://github.com/googlesamples/android-architecture-components/tree/master/GithubBrowserSample)
+- [N26AndroidSamples](https://github.com/n26/N26AndroidSamples)
+- Loads of [StackOverflow](https://stackoverflow.com/)
+
 FAQ
 ---
 
