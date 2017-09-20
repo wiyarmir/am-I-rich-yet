@@ -1,6 +1,5 @@
 package es.guillermoorellana.amirichyet.marketdata
 
-import android.arch.lifecycle.LifecycleFragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
@@ -8,6 +7,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.BaseTransientBottomBar
 import android.support.design.widget.Snackbar
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +17,7 @@ import es.guillermoorellana.amirichyet.main.MainActivityComponent
 import javax.inject.Inject
 
 
-class MarketChartFragment : LifecycleFragment() {
+class MarketChartFragment : Fragment() {
 
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
 
