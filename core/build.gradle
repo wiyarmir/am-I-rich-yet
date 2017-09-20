@@ -1,4 +1,4 @@
-apply plugin: 'java'
+apply plugin: 'java-library'
 apply plugin: 'kotlin'
 
 dependencies {
@@ -6,7 +6,7 @@ dependencies {
 
     implementation commonDependencies.kotlinStdLib
 
-    compile commonDependencies.rxJava2
+    api commonDependencies.rxJava2
 
     compileOnly commonDependencies.javaxAnnotation
     implementation commonDependencies.dagger2

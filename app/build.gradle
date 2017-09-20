@@ -28,7 +28,6 @@ android {
 
 dependencies {
     def commonDependencies = rootProject.ext.commonDependencies
-    def developmentDependencies = rootProject.ext.developmentDependencies
     def testDependencies = rootProject.ext.testDependencies
 
     implementation commonDependencies.kotlinStdLib
@@ -51,15 +50,6 @@ dependencies {
     api commonDependencies.archLifecycleExtensions
     api commonDependencies.archLifecycleReactiveStreams
     kapt commonDependencies.archLifecycleCompiler
-
-    // Stetho
-    implementation developmentDependencies.stetho
-    implementation developmentDependencies.stethoOkHttp
-
-    // Leak Canary
-    debugImplementation developmentDependencies.leakcanary
-    releaseImplementation developmentDependencies.leakcanaryNoOp
-    testImplementation developmentDependencies.leakcanaryNoOp
 
     // Tests
     testImplementation testDependencies.junit

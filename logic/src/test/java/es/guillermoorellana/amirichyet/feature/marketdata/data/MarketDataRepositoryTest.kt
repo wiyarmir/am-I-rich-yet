@@ -1,8 +1,8 @@
 package es.guillermoorellana.amirichyet.feature.marketdata.data
 
 import es.guillermoorellana.amirichyet.core.data.store.ReactiveStore
-import es.guillermoorellana.amirichyet.service.marketdata.MarketDataRaw
-import es.guillermoorellana.amirichyet.service.marketdata.MarketDataService
+import es.guillermoorellana.amirichyet.service.bitcoindata.BitcoinDataRaw
+import es.guillermoorellana.amirichyet.service.bitcoindata.MarketDataService
 import io.reactivex.Single
 import org.amshove.kluent.When
 import org.amshove.kluent.`it returns`
@@ -21,12 +21,12 @@ class MarketDataRepositoryTest {
     @Mock
     private lateinit var mapper: MarketDataMapper
     @Mock
-    private lateinit var marketDataRaw: MarketDataRaw
+    private lateinit var bitcoinDataRaw: BitcoinDataRaw
 
 
     @Test
     fun `I know how to configure tests`() {
-        When calling service.getMarketPrice() `it returns` Single.just(marketDataRaw)
+        When calling service.getMarketPrice() `it returns` Single.just(bitcoinDataRaw)
         val repo = createRepo()
 
         val observer = repo.fetchMarketData().test()

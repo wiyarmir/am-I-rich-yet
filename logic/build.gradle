@@ -1,4 +1,4 @@
-apply plugin: 'java'
+apply plugin: 'java-library'
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-kapt'
 
@@ -6,7 +6,7 @@ dependencies {
     def commonDependencies = rootProject.ext.commonDependencies
 
     implementation project(':core')
-    compile project(':services')
+    api project(':services')
 
     // Dagger 2
     implementation commonDependencies.dagger2

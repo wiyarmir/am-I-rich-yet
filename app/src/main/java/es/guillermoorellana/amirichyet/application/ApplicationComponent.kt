@@ -3,6 +3,7 @@ package es.guillermoorellana.amirichyet.application
 import dagger.BindsInstance
 import dagger.Component
 import es.guillermoorellana.amirichyet.main.MainActivityComponent
+import es.guillermoorellana.amirichyet.service.network.NetworkModule
 import javax.inject.Singleton
 
 @Singleton
@@ -10,6 +11,7 @@ import javax.inject.Singleton
         modules = arrayOf(
                 ApplicationModule::class,
                 DataModule::class,
+                NetworkModule::class,
                 ViewModelModule::class
         )
 )

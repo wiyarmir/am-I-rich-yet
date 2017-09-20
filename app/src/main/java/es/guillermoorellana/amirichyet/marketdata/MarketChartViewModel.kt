@@ -15,15 +15,14 @@ class MarketChartViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
+    private val mapper: (List<MarketData>) -> PlotData =
+            { PlotData(it.map { PlotData.DataPoint(it.timestamp, it.value) }) }
+    val marketGraphLiveData = MutableLiveData<PlotData>()
+        get
 
     init {
         compositeDisposable.add(bindToMarketData())
     }
-
-    val marketGraphLiveData = MutableLiveData<PlotData>()
-        get
-
-    private val mapper: (List<MarketData>) -> PlotData = TODO()
 
     private fun bindToMarketData(): Disposable =
             retrieveMarketData.getStream(Optional.empty())
@@ -31,5 +30,7 @@ class MarketChartViewModel @Inject constructor(
                     .map(mapper)
                     .subscribe({ marketGraphLiveData.postValue(it) })
 
-    class PlotData
+    data class PlotData(val dataPoints: List<DataPoint>) {
+        data class DataPoint(val x: Date, val y: Double)
+    }
 }

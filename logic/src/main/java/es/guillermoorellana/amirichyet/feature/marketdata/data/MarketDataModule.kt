@@ -7,12 +7,12 @@ import es.guillermoorellana.amirichyet.core.data.store.MemoryReactiveStore
 import es.guillermoorellana.amirichyet.core.data.store.MemoryStore
 import es.guillermoorellana.amirichyet.core.data.store.ReactiveStore
 import es.guillermoorellana.amirichyet.core.provider.TimestampProvider
-import es.guillermoorellana.amirichyet.service.marketdata.MarketDataRaw
-import es.guillermoorellana.amirichyet.service.marketdata.MarketDataService
-import io.reactivex.Single
+import es.guillermoorellana.amirichyet.service.bitcoindata.BitcoinDataModule
+import es.guillermoorellana.amirichyet.service.bitcoindata.BitcoinDataRaw
+import java.util.*
 import javax.inject.Singleton
 
-@Module
+@Module(includes = arrayOf(BitcoinDataModule::class))
 class MarketDataModule {
     val extractKeyFromModel: (MarketData) -> String = { value -> value.timestamp.toString() }
 
@@ -27,10 +27,8 @@ class MarketDataModule {
             MemoryReactiveStore(extractKeyFromModel, cache)
 
     @Provides
-    fun provideService(): MarketDataService = object : MarketDataService {
-        override fun getMarketPrice(): Single<MarketDataRaw> = TODO()
+    fun provideMarketDataMapper(): MarketDataMapper = object : MarketDataMapper {
+        override fun map(bitcoinDataRaw: BitcoinDataRaw): List<MarketData> =
+                bitcoinDataRaw.values.map { MarketData(Date(it.x), it.y) }
     }
-
-    @Provides
-    fun provideMarketDataMapper(): MarketDataMapper = TODO()
 }
