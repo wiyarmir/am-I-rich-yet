@@ -2,6 +2,7 @@ package es.guillermoorellana.amirichyet.marketdata
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import com.github.mikephil.charting.data.Entry
 import es.guillermoorellana.amirichyet.feature.marketdata.data.MarketData
 import es.guillermoorellana.amirichyet.feature.marketdata.interactor.RetrieveMarketData
 import io.reactivex.disposables.CompositeDisposable
@@ -16,7 +17,7 @@ class MarketChartViewModel @Inject constructor(
 
     private val compositeDisposable = CompositeDisposable()
     private val mapper: (List<MarketData>) -> PlotData =
-            { PlotData(it.map { PlotData.DataPoint(it.timestamp, it.value) }) }
+            { PlotData(it.map { Entry(it.timestamp.toFloat(), it.value.toFloat()) }) }
     val marketGraphLiveData = MutableLiveData<PlotData>()
         get
 
@@ -30,7 +31,5 @@ class MarketChartViewModel @Inject constructor(
                     .map(mapper)
                     .subscribe({ marketGraphLiveData.postValue(it) })
 
-    data class PlotData(val dataPoints: List<DataPoint>) {
-        data class DataPoint(val x: Date, val y: Double)
-    }
+    data class PlotData(val entries: List<Entry>)
 }

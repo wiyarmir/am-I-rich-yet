@@ -13,6 +13,7 @@ ext {
     retrofit2 = '2.3.0'
     gson = '2.8.1'
     roomVersion = '1.0.0-alpha4'
+    mpAndroidChart = 'v3.0.2'
 
     // Instrumentation
     stetho = '1.5.0'
@@ -57,6 +58,8 @@ ext {
             retrofitConverter           : "com.squareup.retrofit2:converter-gson:${retrofit2}",
 
             gson                        : "com.google.code.gson:gson:${gson}",
+
+            mpAndroidChart              : "com.github.PhilJay:MPAndroidChart:${mpAndroidChart}",
     ]
 
     testDependencies = [

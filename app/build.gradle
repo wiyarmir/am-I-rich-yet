@@ -2,6 +2,10 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
 android {
     compileSdkVersion project.compileSdkVersion as int
     buildToolsVersion project.buildToolsVersion
@@ -50,6 +54,9 @@ dependencies {
     api commonDependencies.archLifecycleExtensions
     api commonDependencies.archLifecycleReactiveStreams
     kapt commonDependencies.archLifecycleCompiler
+
+    // Charts
+    implementation commonDependencies.mpAndroidChart
 
     // Tests
     testImplementation testDependencies.junit

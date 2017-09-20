@@ -9,7 +9,6 @@ import es.guillermoorellana.amirichyet.core.data.store.ReactiveStore
 import es.guillermoorellana.amirichyet.core.provider.TimestampProvider
 import es.guillermoorellana.amirichyet.service.bitcoindata.BitcoinDataModule
 import es.guillermoorellana.amirichyet.service.bitcoindata.BitcoinDataRaw
-import java.util.*
 import javax.inject.Singleton
 
 @Module(includes = arrayOf(BitcoinDataModule::class))
@@ -29,6 +28,6 @@ class MarketDataModule {
     @Provides
     fun provideMarketDataMapper(): MarketDataMapper = object : MarketDataMapper {
         override fun map(bitcoinDataRaw: BitcoinDataRaw): List<MarketData> =
-                bitcoinDataRaw.values.map { MarketData(Date(it.x), it.y) }
+                bitcoinDataRaw.values.map { MarketData(it.x, it.y) }
     }
 }

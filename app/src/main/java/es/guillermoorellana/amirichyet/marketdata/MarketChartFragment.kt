@@ -12,10 +12,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.components.AxisBase
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import es.guillermoorellana.amirichyet.R
 import es.guillermoorellana.amirichyet.injection.getComponent
 import es.guillermoorellana.amirichyet.main.MainActivityComponent
 import kotterknife.bindView
+import java.text.SimpleDateFormat
+import java.util.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 
@@ -23,7 +31,8 @@ class MarketChartFragment : Fragment() {
 
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    val textView: TextView by bindView(R.id.text)
+    private val textView: TextView by bindView(R.id.text)
+    private val chart: LineChart by bindView(R.id.chart)
 
     override fun onAttach(context: Context?) {
         activity.getComponent<MainActivityComponent>()
@@ -45,11 +54,23 @@ class MarketChartFragment : Fragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        chart.xAxis.valueFormatter = object : IAxisValueFormatter {
+
+            private val format = SimpleDateFormat("dd MMM HH:mm", Locale.UK)
+
+            override fun getFormattedValue(value: Float, axis: AxisBase): String {
+                val millis = TimeUnit.SECONDS.toMillis(value.toLong())
+                return format.format(Date(millis))
+            }
+        }
     }
 
     private fun updateGraph(plotData: MarketChartViewModel.PlotData?) {
         view?.also { Snackbar.make(it, "data!", BaseTransientBottomBar.LENGTH_SHORT).show() }
         textView.text = plotData.toString()
+        plotData
+                ?.let { (entries) -> LineDataSet(entries, "Price") }
+                .let { dataSet -> chart.data = LineData(dataSet) }
     }
 
     companion object {
