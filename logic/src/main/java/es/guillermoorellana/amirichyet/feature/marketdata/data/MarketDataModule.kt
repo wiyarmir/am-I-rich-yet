@@ -13,7 +13,7 @@ import javax.inject.Singleton
 
 @Module(includes = arrayOf(BitcoinDataModule::class))
 class MarketDataModule {
-    val extractKeyFromModel: (MarketData) -> String = { value -> value.timestamp.toString() }
+    private val extractKeyFromModel: (MarketData) -> String = { value -> value.timestamp.toString() }
 
     @Provides
     @Singleton

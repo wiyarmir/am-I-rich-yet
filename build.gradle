@@ -21,4 +21,9 @@ allprojects {
     }
 }
 
-apply from: 'dependencies.gradle'
+subprojects{
+    apply from: "${rootDir}/gradle/generated-kotlin-sources.gradle"
+}
+
+apply from: 'gradle/dependencies.gradle'
+

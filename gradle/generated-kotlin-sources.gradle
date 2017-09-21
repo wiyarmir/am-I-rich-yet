@@ -1,0 +1,19 @@
+apply plugin: 'idea'
+
+/**
+ * IntelliJ IDEA fails to recognise generated kotlin sources and marks as unused many methods that in fact are.
+ * This is a partial solution that will allow for code navigation but in return will remove the "file should not be modified" warning.
+ */
+
+idea {
+    module {
+        sourceDirs += files(
+                'build/generated/source/kapt/main',
+                'build/generated/source/kaptKotlin/main',
+                'build/tmp/kapt/main/kotlinGenerated')
+        generatedSourceDirs += files(
+                'build/generated/source/kapt/main',
+                'build/generated/source/kaptKotlin/main',
+                'build/tmp/kapt/main/kotlinGenerated')
+    }
+}
