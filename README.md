@@ -3,6 +3,9 @@ am I rich yet
 
 Fetch information about the current BitCoin market price and display the data in a graph.
 
+
+![Screenshot](https://raw.githubusercontent.com/wiyarmir/am-I-rich-yet/master/misc/screenshot.png)
+
 Goals
 -----
 
