@@ -1,4 +1,5 @@
 ext {
+
     // Libraries
     rxJava2 = '2.1.0'
     rxAndroid = '2.0.1'
@@ -14,10 +15,6 @@ ext {
     gson = '2.8.1'
     roomVersion = '1.0.0-alpha4'
     mpAndroidChart = 'v3.0.2'
-
-    // Instrumentation
-    stetho = '1.5.0'
-    leakCanary = '1.5.1'
 
     // Testing
     junit = '4.12'
@@ -68,13 +65,5 @@ ext {
             mockito : "org.mockito:mockito-core:${mockito}",
             archTest: "android.arch.core:core-testing:${archLifecycle}",
             kluent  : "org.amshove.kluent:kluent:${kluent}",
-    ]
-
-    developmentDependencies = [
-            leakcanary    : "com.squareup.leakcanary:leakcanary-android:${leakCanary}",
-            leakcanaryNoOp: "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanary}",
-
-            stetho        : "com.facebook.stetho:stetho:${stetho}",
-            stethoOkHttp  : "com.facebook.stetho:stetho-okhttp3:${stetho}",
     ]
 }

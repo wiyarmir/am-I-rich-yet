@@ -6,15 +6,15 @@ Fetch information about the current BitCoin market price and display the data in
 Goals
 -----
 
-- [ ] Make a network call to a remote api resource to fetch the current exchange rate data, it is not necessary to demonstrate authentication or oauth processes,
+- [x] Make a network call to a remote api resource to fetch the current exchange rate data, it is not necessary to demonstrate authentication or oauth processes,
 
-- [ ] Effectively make use of threading and asynchronous behaviour
+- [x] Effectively make use of threading and asynchronous behaviour
 
-- [ ] Show understanding of the Android SDK and application / activity lifecycles,
+- [x] Show understanding of the Android SDK and application / activity lifecycles,
 
-- [ ] Be performant and make appropriate use of background tasks
+- [x] Be performant and make appropriate use of background tasks
 
-- [ ] Show market price data over time using an appropriate graph.
+- [x] Show market price data over time using an appropriate graph.
 
 Design Principles
 -----------------
@@ -23,6 +23,13 @@ Design Principles
 - Clean architecture
 - Reactive
 - *SOLID*
+
+Further improvement
+-------------------
+
+- [ ] Continuous Integration
+
+- [ ] Kotlinify the `Optional` usage
 
 Inspiration
 -----------
