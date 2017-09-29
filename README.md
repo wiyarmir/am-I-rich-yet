@@ -30,6 +30,10 @@ Design Principles
 Further improvement
 -------------------
 
+- [ ] Find a chart lib with a decent API
+
+- [ ] Fix ugly cluttered dates in the X axis
+
 - [ ] Loading, error states
 
 - [ ] Continuous Integration
