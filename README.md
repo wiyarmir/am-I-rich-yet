@@ -27,13 +27,15 @@ Design Principles
 Further improvement
 -------------------
 
+- [ ] Loading, error states
+
 - [ ] Continuous Integration
 
 - [ ] Kotlinify the `Optional` usage
 
 - [ ] Make period and currency configurable
 
-- [ ] Refresh
+- [ ] Refresh mechanism
 
 Inspiration
 -----------
