@@ -31,6 +31,10 @@ Further improvement
 
 - [ ] Kotlinify the `Optional` usage
 
+- [ ] Make period and currency configurable
+
+- [ ] Refresh
+
 Inspiration
 -----------
 

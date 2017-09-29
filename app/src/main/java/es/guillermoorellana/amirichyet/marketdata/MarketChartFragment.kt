@@ -18,10 +18,13 @@ import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IAxisValueFormatter
+import com.github.mikephil.charting.formatter.IValueFormatter
 import es.guillermoorellana.amirichyet.R
 import es.guillermoorellana.amirichyet.injection.getComponent
 import es.guillermoorellana.amirichyet.main.MainActivityComponent
+import es.guillermoorellana.amirichyet.marketdata.MarketChartViewModel.PlotData
 import kotterknife.bindView
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -59,6 +62,7 @@ class MarketChartFragment : Fragment() {
     }
 
     private object ChartHelper {
+        val moneyFormat: NumberFormat = NumberFormat.getCurrencyInstance()
 
         fun setupChart(chart: LineChart) {
             chart.setDrawGridBackground(false)
@@ -71,7 +75,6 @@ class MarketChartFragment : Fragment() {
 
         private fun setupXaxis(xAxis: XAxis) {
             xAxis.valueFormatter = object : IAxisValueFormatter {
-
                 private val format = SimpleDateFormat("dd MMM HH:mm", Locale.UK)
 
                 override fun getFormattedValue(value: Float, axis: AxisBase): String {
@@ -87,13 +90,18 @@ class MarketChartFragment : Fragment() {
             yAxis.setDrawGridLines(false)
         }
 
-        fun plotData(plotData: MarketChartViewModel.PlotData?, chart: LineChart, dataSet: LineDataSet) =
-                plotData?.let { (entries) ->
+        fun plotData(plotData: List<PlotData>?, chart: LineChart, dataSet: LineDataSet) =
+                plotData?.firstOrNull()?.let { (currency, entries) ->
+                    moneyFormat.currency = Currency.getInstance(currency)
+
+                    dataSet.label = currency
+                    dataSet.valueFormatter = IValueFormatter { value, _, _, _ -> moneyFormat.format(value) }
                     dataSet.values = entries
-                }.also {
+
                     val lineData = LineData(dataSet)
+
                     chart.data = lineData
-                }.also {
+                    chart.axisRight.valueFormatter = IAxisValueFormatter { value, _ -> moneyFormat.format(value) }
                     chart.invalidate()
                 }
 

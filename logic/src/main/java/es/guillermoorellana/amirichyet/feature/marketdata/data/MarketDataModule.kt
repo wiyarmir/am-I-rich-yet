@@ -13,7 +13,7 @@ import javax.inject.Singleton
 
 @Module(includes = arrayOf(BitcoinDataModule::class))
 class MarketDataModule {
-    private val extractKeyFromModel: (MarketData) -> String = { value -> value.timestamp.toString() }
+    private val extractKeyFromModel: (MarketData) -> String = MarketData::currency
 
     @Provides
     @Singleton
@@ -27,7 +27,8 @@ class MarketDataModule {
 
     @Provides
     fun provideMarketDataMapper(): MarketDataMapper = object : MarketDataMapper {
-        override fun map(bitcoinDataRaw: BitcoinDataRaw): List<MarketData> =
-                bitcoinDataRaw.values.map { MarketData(it.x, it.y) }
+        override fun map(raw: BitcoinDataRaw): List<MarketData> =
+                listOf(MarketData(currency = raw.unit, dataPoints = raw.values.map { MarketDataPoint(it.x, it.y) }))
+
     }
 }
